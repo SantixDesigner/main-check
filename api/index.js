@@ -11,7 +11,12 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/api', (req, res) => {
-  res.send('Hola mi server en express');
+  try {
+    res.send('Hola mi server en express');
+  }
+  catch {
+    console.error("nt")
+  }
 });
 
 app.get('/api/nueva-ruta', (req, res) => {
@@ -26,7 +31,7 @@ app.use(errorHandler);
 
 
 app.listen(port, () => {
-  console.log('Mi port' +  port);
+  console.log('Mi port' + port);
 });
 
 module.exports = app;
